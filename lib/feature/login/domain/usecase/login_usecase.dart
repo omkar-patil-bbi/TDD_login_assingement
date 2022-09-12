@@ -1,7 +1,9 @@
-// import '../repositories/login_register_repository.dart';
+import '../repositories/login_repository.dart';
 
-// class GetLogin {
-//   late final LoginRegisterRepository repository;
-
-//   GetLogin(this.repository);
-// }
+class LoginUsecase {
+  final LoginRepositories repository;
+  LoginUsecase(this.repository);
+  Future<bool> call({required String email, required String pass}) async {
+    return await repository.login(email, pass);
+  }
+}

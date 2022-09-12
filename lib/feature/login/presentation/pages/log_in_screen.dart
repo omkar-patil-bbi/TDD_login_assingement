@@ -45,7 +45,7 @@ class _SignInPageState extends State<SignInPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Color(0xff2ACCBB),
+        backgroundColor: Colors.white,
         //  appBar: AppBar(backgroundColor: Colors.black),
         body: Stack(
           children: [
@@ -119,7 +119,10 @@ class _SignInPageState extends State<SignInPage> {
                       Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Card(
-                          color: Color.fromARGB(96, 231, 236, 236),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(15.0),
+                          ),
+                          color: Color.fromARGB(95, 234, 212, 212),
                           child: Container(
                             decoration: BoxDecoration(
                               //color: Color.fromARGB(96, 231, 236, 236),

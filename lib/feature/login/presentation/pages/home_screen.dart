@@ -16,7 +16,7 @@ class _LogOutPageState extends State<LogOutPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Color(0xff2ACCBB),
+        backgroundColor: Colors.white,
         // appBar: AppBar(
         //   backgroundColor: Color(0xff3d5a5a),
         //   actions: [

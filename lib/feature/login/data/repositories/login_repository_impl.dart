@@ -12,27 +12,27 @@ class LoginRepositoryImpl implements LoginRepositories {
   });
 
   @override
-  Future<String>? getScreenNumber() {
+  Future<String> getScreenNumber() {
     return localDataSource.getScreenNumber();
   }
 
   @override
-  Future<UserDetails>? getUserDetail() {
+  Future<UserDetails> getUserDetail() {
     return localDataSource.getUserDetail();
   }
 
   @override
-  Future<bool>? login(String email, String pass) {
+  Future<bool> login(String email, String pass) {
     return localDataSource.login(email, pass);
   }
 
   @override
-  Future? setScreenNumber(String screenNumber) {
+  Future setScreenNumber(String screenNumber) {
     return localDataSource.setScreenNumber(screenNumber);
   }
 
   @override
-  Future? setUserDetails(UserDetails userDetails) {
+  Future setUserDetails(UserDetails userDetails) {
     return localDataSource.setUserDetails(LoginModel(
         name: userDetails.name,
         age: userDetails.age,

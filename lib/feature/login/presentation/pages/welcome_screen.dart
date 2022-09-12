@@ -21,11 +21,11 @@ class _WelcomePageState extends State<WelcomePage> {
     return Scaffold(
         backgroundColor: Color(0xff2ACCBB),
         appBar: AppBar(
-          backgroundColor: Color(0xff7CDEDF),
+          backgroundColor: Color(0xff2ACCBB),
           title: ClayContainer(
-              color: Color(0xff7CDEDF),
+              color: Color(0xff2ACCBB),
               borderRadius: 75,
-              curveType: CurveType.convex,
+              curveType: CurveType.concave,
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Text('Welcomes Screen'),
@@ -33,30 +33,243 @@ class _WelcomePageState extends State<WelcomePage> {
         ),
         body: Stack(
           children: [
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Row(
-                children: [
-                  ClayContainer(
-                    color: Color(0xff2ACCBB),
-                    borderRadius: 75,
-                    curveType: CurveType.concave,
-                    depth: 100,
-                    child: Container(
-                      height: 80,
-                      width: 80,
-                      decoration: BoxDecoration(
+            Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Row(
+                    children: [
+                      ClayContainer(
                         color: Color(0xff2ACCBB),
-                        borderRadius: BorderRadius.only(
-                            topRight: Radius.circular(100.0),
-                            bottomRight: Radius.circular(100.0),
-                            topLeft: Radius.circular(100.0),
-                            bottomLeft: Radius.circular(100.0)),
-                      ),
-                    ),
-                  )
-                ],
-              ),
+                        borderRadius: 75,
+                        curveType: CurveType.convex,
+                        //depth: 100,
+                        //spread: 30,
+                        child: Container(
+                          height: 70,
+                          width: 70,
+                          // decoration: BoxDecoration(
+                          //   color: Color(0xff2ACCBB),
+                          //   borderRadius: BorderRadius.only(
+                          //       topRight: Radius.circular(100.0),
+                          //       bottomRight: Radius.circular(100.0),
+                          //       topLeft: Radius.circular(10.0),
+                          //       bottomLeft: Radius.circular(10.0)),
+                          // ),
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 150.0),
+                  child: Row(
+                    children: [
+                      ClayContainer(
+                        color: Color(0xff2ACCBB),
+                        borderRadius: 75,
+                        curveType: CurveType.concave,
+                        // depth: 100,
+                        spread: 30,
+                        child: Container(
+                          height: 70,
+                          width: 70,
+                          // decoration: BoxDecoration(
+                          //   color: Color(0xff2ACCBB),
+                          //   borderRadius: BorderRadius.only(
+                          //       topRight: Radius.circular(100.0),
+                          //       bottomRight: Radius.circular(100.0),
+                          //       topLeft: Radius.circular(100.0),
+                          //       bottomLeft: Radius.circular(100.0)),
+                          // ),
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 300.0),
+                  child: Row(
+                    children: [
+                      ClayContainer(
+                        color: Color(0xff2ACCBB),
+                        borderRadius: 75,
+                        curveType: CurveType.convex,
+                        // depth: 50,
+                        //spread: 30,
+                        child: Container(
+                          height: 70,
+                          width: 70,
+                          // decoration: BoxDecoration(
+                          //   color: Color(0xff2ACCBB),
+                          //   borderRadius: BorderRadius.only(
+                          //       topRight: Radius.circular(10.0),
+                          //       bottomRight: Radius.circular(10.0),
+                          //       topLeft: Radius.circular(100.0),
+                          //       bottomLeft: Radius.circular(100.0)),
+                          // ),
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 150.0),
+                  child: Row(
+                    children: [
+                      ClayContainer(
+                        color: Color(0xff2ACCBB),
+                        borderRadius: 75,
+                        curveType: CurveType.convex,
+                        // depth: 100,
+                        // spread: 30,
+                        child: Container(
+                          height: 70,
+                          width: 70,
+                          // decoration: BoxDecoration(
+                          //   color: Color(0xff2ACCBB),
+                          //   borderRadius: BorderRadius.only(
+                          //       topRight: Radius.circular(100.0),
+                          //       bottomRight: Radius.circular(100.0),
+                          //       topLeft: Radius.circular(100.0),
+                          //       bottomLeft: Radius.circular(100.0)),
+                          // ),
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Row(
+                    children: [
+                      ClayContainer(
+                        color: Color(0xff2ACCBB),
+                        borderRadius: 75,
+                        curveType: CurveType.concave,
+                        // depth: 100,
+                        //spread: 30,
+                        child: Container(
+                          height: 70,
+                          width: 70,
+                          // decoration: BoxDecoration(
+                          //   color: Color(0xff2ACCBB),
+                          //   borderRadius: BorderRadius.only(
+                          //       topRight: Radius.circular(.0),
+                          //       bottomRight: Radius.circular(100.0),
+                          //       topLeft: Radius.circular(100.0),
+                          //       bottomLeft: Radius.circular(10.0)),
+                          // ),
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 150.0),
+                  child: Row(
+                    children: [
+                      ClayContainer(
+                        color: Color(0xff2ACCBB),
+                        borderRadius: 75,
+                        curveType: CurveType.convex,
+                        // depth: 100,
+                        // spread: 30,
+                        child: Container(
+                          height: 70,
+                          width: 70,
+                          // decoration: BoxDecoration(
+                          //   color: Color(0xff2ACCBB),
+                          //   borderRadius: BorderRadius.only(
+                          //       topRight: Radius.circular(100.0),
+                          //       bottomRight: Radius.circular(100.0),
+                          //       topLeft: Radius.circular(100.0),
+                          //       bottomLeft: Radius.circular(100.0)),
+                          // ),
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 300.0),
+                  child: Row(
+                    children: [
+                      ClayContainer(
+                        color: Color(0xff2ACCBB),
+                        borderRadius: 75,
+                        curveType: CurveType.concave,
+                        // depth: 100,
+                        //spread: 30,
+                        child: Container(
+                          height: 70,
+                          width: 70,
+                          // decoration: BoxDecoration(
+                          //   color: Color(0xff2ACCBB),
+                          //   borderRadius: BorderRadius.only(
+                          //       topRight: Radius.circular(100.0),
+                          //       bottomRight: Radius.circular(100.0),
+                          //       topLeft: Radius.circular(100.0),
+                          //       bottomLeft: Radius.circular(100.0)),
+                          // ),
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 150.0),
+                  child: Row(
+                    children: [
+                      ClayContainer(
+                        color: Color(0xff2ACCBB),
+                        borderRadius: 75,
+                        curveType: CurveType.concave,
+                        // depth: 100,
+                        // spread: 30,
+                        child: Container(
+                          height: 70,
+                          width: 70,
+                          // decoration: BoxDecoration(
+                          //   color: Color(0xff2ACCBB),
+                          //   borderRadius: BorderRadius.only(
+                          //       topRight: Radius.circular(100.0),
+                          //       bottomRight: Radius.circular(100.0),
+                          //       topLeft: Radius.circular(100.0),
+                          //       bottomLeft: Radius.circular(100.0)),
+                          // ),
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Row(
+                    children: [
+                      ClayContainer(
+                        color: Color(0xff2ACCBB),
+                        borderRadius: 75,
+                        curveType: CurveType.convex,
+                        // depth: 100,
+                        //spread: 30,
+                        child: Container(
+                          height: 70,
+                          width: 70,
+                          // decoration: BoxDecoration(
+                          //   color: Color(0xff2ACCBB),
+                          //   borderRadius: BorderRadius.only(
+                          //       topRight: Radius.circular(100.0),
+                          //       bottomRight: Radius.circular(100.0),
+                          //       topLeft: Radius.circular(100.0),
+                          //       bottomLeft: Radius.circular(100.0)),
+                          // ),
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+              ],
             ),
             Column(
               mainAxisAlignment: MainAxisAlignment.center,
