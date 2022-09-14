@@ -1,11 +1,11 @@
 import 'dart:convert';
 
-import 'package:flutter/material.dart';
+// import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../../core/error/exception.dart';
 import '../../domain/entities/user_details.dart';
-import '../../domain/repositories/login_repository.dart';
+// import '../../domain/repositories/login_repository.dart';
 import '../model/login_model.dart';
 
 abstract class LoginLocalDataSource {
@@ -18,10 +18,15 @@ abstract class LoginLocalDataSource {
   Future setUserDetails(LoginModel userDetails);
 
   Future<bool> login(String email, String pass);
+
+  isRemember() {}
+
+  setisRemember(bool value) {}
 }
 
 const SCREEN_NUMBER = 'SCREEN_NUMBER';
 const USER_DETAIL = 'USER_DETAIL';
+const BOOL_DATA = 'BOOL_DATA';
 
 class LoginRepositoryImpl implements LoginLocalDataSource {
   late final SharedPreferences sharedPreferences;
@@ -53,7 +58,7 @@ class LoginRepositoryImpl implements LoginLocalDataSource {
   @override
   Future<bool> login(String email, String pass) async {
     LoginModel? loginModel = await getUserDetail();
-    if (loginModel!.email == email && loginModel.pass == pass) {
+    if (loginModel.email == email && loginModel.pass == pass) {
       return Future.value(true);
     } else {
       return Future.value(false);
@@ -70,5 +75,25 @@ class LoginRepositoryImpl implements LoginLocalDataSource {
   Future setUserDetails(LoginModel loginModel) {
     final value = loginModel.toJson().toString();
     return Future.value(sharedPreferences.setString(USER_DETAIL, value));
+  }
+
+  @override
+  Future<bool> isRemember() {
+    final isRememberData = sharedPreferences.getBool(BOOL_DATA);
+    if (isRememberData != null) {
+      return Future.value(true);
+    } else {
+      throw CacheException();
+    }
+  }
+
+  @override
+  Future setisRemember(bool value) {
+    final setRememberData = sharedPreferences.setBool(BOOL_DATA, value);
+    if (setRememberData != null) {
+      return Future.value(setRememberData);
+    } else {
+      throw CacheException();
+    }
   }
 }
