@@ -15,6 +15,8 @@ class _RegisterSuccesfullPageState extends State<RegisterSuccesfullPage> {
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
 
+  bool checkBoxValue = false;
+
   bool isEmailCorrect = false;
   bool isPasswordEightCharecter = false;
   bool hasPasswordOneNumber = false;
@@ -59,16 +61,35 @@ class _RegisterSuccesfullPageState extends State<RegisterSuccesfullPage> {
                   ),
                   height: 400,
                   width: 300,
-                  child: Center(
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Text(
-                        "Hurrey Account created Succesfully",
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 20),
-                      ),
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          "Account created Succesfully",
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 20),
+                        ),
+                        Row(
+                          children: [
+                            Checkbox(
+                                activeColor: Colors.green,
+                                value: checkBoxValue,
+                                onChanged: ((newValue) {
+                                  setState(() {
+                                    checkBoxValue = newValue!;
+                                  });
+                                })),
+                            Text(
+                              'Remember me',
+                              style: TextStyle(color: Colors.white),
+                            )
+                          ],
+                        )
+                      ],
                     ),
                   ),
                 ),
@@ -78,6 +99,8 @@ class _RegisterSuccesfullPageState extends State<RegisterSuccesfullPage> {
                 child: MyButton(
                   text: "Log In",
                   onPress: () {
+                    BlocProvider.of<AppBloc>(context)
+                        .saveIsRemember(checkBoxValue);
                     BlocProvider.of<AppBloc>(context).loadSingInPage();
                   },
                 ),

@@ -59,7 +59,7 @@ class _LogOutPageState extends State<LogOutPage> {
                                     child: InkWell(
                                       onTap: () {
                                         BlocProvider.of<AppBloc>(context)
-                                            .loadSingInPage();
+                                            .loadRegisterSuccesfullPage();
                                       },
                                       child: ClayContainer(
                                         color: Color(0xff7CDEDF),

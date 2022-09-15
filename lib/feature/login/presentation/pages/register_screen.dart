@@ -2,6 +2,7 @@ import 'package:clay_containers/constants.dart';
 import 'package:clay_containers/widgets/clay_container.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:task3/feature/login/domain/entities/user_details.dart';
 import 'package:validators/validators.dart';
 
 import '../bloc/app_bloc.dart';
@@ -423,6 +424,12 @@ class _RegisterPageState extends State<RegisterPage> {
                                       isEmailCorrect &&
                                       isPasswordEightCharecter &&
                                       hasPasswordOneNumber) {
+                                    BlocProvider.of<AppBloc>(context)
+                                        .saveUserDetails(UserDetails(
+                                            name: nameController.text,
+                                            age: int.parse(ageController.text),
+                                            email: emailController.text,
+                                            pass: passwordController.text));
                                     BlocProvider.of<AppBloc>(context)
                                         .loadRegisterSuccesfullPage();
                                   } else {

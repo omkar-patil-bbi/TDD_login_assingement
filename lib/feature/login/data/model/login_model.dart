@@ -13,7 +13,7 @@ class LoginModel extends UserDetails {
   factory LoginModel.fromJson(Map<String, dynamic> json) {
     return LoginModel(
         name: json['name'],
-        age: json['age'],
+        age: int.parse(json['age']),
         email: json['email'],
         pass: json['pass']);
   }

@@ -28,13 +28,15 @@ const SCREEN_NUMBER = 'SCREEN_NUMBER';
 const USER_DETAIL = 'USER_DETAIL';
 const BOOL_DATA = 'BOOL_DATA';
 
-class LoginRepositoryImpl implements LoginLocalDataSource {
+class LoginLocalDataSourceImpl implements LoginLocalDataSource {
   late final SharedPreferences sharedPreferences;
 
-  LoginRepositoryImpl({required this.sharedPreferences});
+  LoginLocalDataSourceImpl({required this.sharedPreferences});
 
   @override
   Future<String> getScreenNumber() {
+    print("get screen number call");
+
     String? data = sharedPreferences.getString(SCREEN_NUMBER);
 
     if (data != null) {
@@ -46,10 +48,22 @@ class LoginRepositoryImpl implements LoginLocalDataSource {
 
   @override
   Future<LoginModel> getUserDetail() {
+    print("get user detail call");
     String? data = sharedPreferences.getString(USER_DETAIL);
 
     if (data != null) {
-      return Future.value(LoginModel.fromJson(json.decode(data.toString())));
+      List<String> str = data
+          .replaceAll("{", "")
+          .replaceAll("}", "")
+          .replaceAll("\"", "")
+          .replaceAll("'", "")
+          .split(",");
+      Map<String, dynamic> result = {};
+      for (int i = 0; i < str.length; i++) {
+        List<String> s = str[i].split(":");
+        result.putIfAbsent(s[0].trim(), () => s[1].trim());
+      }
+      return Future.value(LoginModel.fromJson(result));
     } else {
       throw CacheException();
     }
@@ -57,6 +71,7 @@ class LoginRepositoryImpl implements LoginLocalDataSource {
 
   @override
   Future<bool> login(String email, String pass) async {
+    print("login call");
     LoginModel? loginModel = await getUserDetail();
     if (loginModel.email == email && loginModel.pass == pass) {
       return Future.value(true);
@@ -67,18 +82,21 @@ class LoginRepositoryImpl implements LoginLocalDataSource {
 
   @override
   Future setScreenNumber(String screenNumber) {
+    print("set screen number call");
     return Future.value(
         sharedPreferences.setString(SCREEN_NUMBER, screenNumber));
   }
 
   @override
   Future setUserDetails(LoginModel loginModel) {
+    print("set user detail call");
     final value = loginModel.toJson().toString();
     return Future.value(sharedPreferences.setString(USER_DETAIL, value));
   }
 
   @override
   Future<bool> isRemember() {
+    print("get is Remember call");
     final isRememberData = sharedPreferences.getBool(BOOL_DATA);
     if (isRememberData != null) {
       return Future.value(true);
@@ -89,6 +107,7 @@ class LoginRepositoryImpl implements LoginLocalDataSource {
 
   @override
   Future setisRemember(bool value) {
+    print("set is remember call");
     final setRememberData = sharedPreferences.setBool(BOOL_DATA, value);
     if (setRememberData != null) {
       return Future.value(setRememberData);

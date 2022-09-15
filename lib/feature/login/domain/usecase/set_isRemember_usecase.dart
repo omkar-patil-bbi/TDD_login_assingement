@@ -8,7 +8,7 @@ import '../repositories/login_repository.dart';
 class SetIsRemember {
   final LoginRepositories repository;
   SetIsRemember(this.repository);
-  Future<Either<Failure, Void>> call({required String value}) async {
-    return await repository.setScreenNumber(value);
+  Future<Either<Failure, bool>> call({required bool value}) async {
+    return await repository.setisRemember(value);
   }
 }

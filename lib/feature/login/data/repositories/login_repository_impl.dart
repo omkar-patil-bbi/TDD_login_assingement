@@ -44,7 +44,7 @@ class LoginRepositoryImpl implements LoginRepositories {
   }
 
   @override
-  Future<Either<Failure, Void>> setScreenNumber(String screenNumber) async {
+  Future<Either<Failure, bool>> setScreenNumber(String screenNumber) async {
     try {
       return Future.value(
           Right(await localDataSource.setScreenNumber(screenNumber)));
@@ -54,7 +54,7 @@ class LoginRepositoryImpl implements LoginRepositories {
   }
 
   @override
-  Future<Either<Failure, Void>> setUserDetails(UserDetails userDetails) async {
+  Future<Either<Failure, bool>> setUserDetails(UserDetails userDetails) async {
     try {
       return Future.value(Right(await localDataSource.setUserDetails(LoginModel(
           name: userDetails.name,
@@ -76,7 +76,7 @@ class LoginRepositoryImpl implements LoginRepositories {
   }
 
   @override
-  Future<Either<Failure, Void>> setisRemember(bool value) async {
+  Future<Either<Failure, bool>> setisRemember(bool value) async {
     try {
       return Future.value(Right(await localDataSource.setisRemember(value)));
     } on CacheException {

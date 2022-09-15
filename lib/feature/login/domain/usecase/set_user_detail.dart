@@ -10,7 +10,7 @@ import '../repositories/login_repository.dart';
 class SetUserDetail {
   final LoginRepositories repository;
   SetUserDetail(this.repository);
-  Future<Either<Failure, Void>> call({required UserDetails userDetails}) async {
+  Future<Either<Failure, bool>> call({required UserDetails userDetails}) async {
     return await repository.setUserDetails(userDetails);
   }
 }

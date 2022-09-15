@@ -323,7 +323,9 @@ class _SignInPageState extends State<SignInPage> {
                                             hasPasswordOneNumber == true
                                         ? () {
                                             BlocProvider.of<AppBloc>(context)
-                                                .loadLogoutPage();
+                                                .checkLogin(
+                                                    emailController.text,
+                                                    passwordController.text);
                                           }
                                         : null)
                               ],

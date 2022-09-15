@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:task3/injection_container.dart';
 
 import 'feature/login/presentation/bloc/app_bloc.dart';
 import 'feature/login/presentation/pages/home_screen.dart';
@@ -15,7 +16,10 @@ import 'feature/login/presentation/pages/welcome_screen.dart';
 // import 'feature/presentation/pages/log_in_screen.dart';
 // import 'feature/presentation/pages/welcome_screen.dart';
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await init();
+
   runApp(const MyApp());
 }
 
@@ -31,14 +35,10 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: BlocProvider(
-        create: (context) => AppBloc(),
+        create: (context) => getIt<AppBloc>(),
         child: BlocBuilder<AppBloc, AppState>(
           builder: (context, state) {
-            if (state is AppInitial) {
-              Future.delayed(const Duration(seconds: 3)).then((value) {
-                BlocProvider.of<AppBloc>(context).loadWelcomeLogin();
-              });
-            } else if (state is WelcomeState) {
+            if (state is WelcomeState) {
               return const WelcomePage(
                 title: 'Welcome',
               );
@@ -59,6 +59,8 @@ class MyApp extends StatelessWidget {
                 title: 'ghfg',
               );
             }
+
+            BlocProvider.of<AppBloc>(context).getSavedScreenNumber();
 
             return const WelcomePage(
               title: 'Welcome',
